@@ -70,12 +70,12 @@ if [[ "$(declare -p HOSTS)" =~ "declare -a" ]]; then
   for HOST in "${HOSTS[@]}"
   do
     echo "Running simulation on host: $HOST"
-    ssh -n -f $USER_NAME@$HOST "export JAVA_OPTS='$JAVA_OPTS' && sh -c 'nohup $GATLING_RUNNER -nr -s $SIMULATION_NAME > /tmp/run.log 2>&1 &'"
+    ssh -n -f $USER_NAME@$HOST "export JAVA_OPTS='$JAVA_OPTS' && sh -c 'nohup $GATLING_RUNNER -nr -s $SIMULATION_NAME --run-description $REPORT_DESCRIPTION > /tmp/run.log 2>&1 &'"
   done
 fi
 
 echo "Running simulation on localhost"
-$GATLING_RUNNER -nr -s $SIMULATION_NAME
+$GATLING_RUNNER -nr -s $SIMULATION_NAME --run-description $REPORT_DESCRIPTION
 
 if [[ "$(declare -p HOSTS)" =~ "declare -a" ]]; then
   echo "Wait other hosts"
@@ -102,8 +102,11 @@ echo "Aggregating simulations"
 $GATLING_RUNNER -ro reports
 
 now=`date +"%Y-%m-%d"_%H-%M-%S`
-mkdir -p $HOME/gatling_reports/${now}
-cp -R ${GATLING_REPORT_DIR}reports/* $HOME/gatling_reports/${now}
+mkdir -p $OUTPUT_DIR/${now}
+cp -R ${GATLING_REPORT_DIR}reports/* $OUTPUT_DIR/${now}
+
+echo "Report saved in $OUTPUT_DIR/${now}"
+echo "Please open the following file $OUTPUT_DIR/${now}/index.html"
 
 # using macOSX
 #open $HOME/gatling_reports/${now}/index.html
