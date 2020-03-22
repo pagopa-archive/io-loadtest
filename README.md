@@ -5,8 +5,8 @@
 Install gatling on hosts.
 
 ```
-# Current GATLING_VERSION is 3.3.1
-sudo bash ./utils/install_gatling.sh GATLING_VERSION
+# Current GATLING_VERSION=3.3.1
+sudo bash io-loadtest/utils/install_gatling.sh GATLING_VERSION
 ```
 
 ## Set vars
@@ -15,9 +15,9 @@ Set global and specific vars.
 
 ```
 # global vars
-cp vars.sample.sh vars.sh
+cp io-loadtest/vars.sample.sh vars.sh
 # specific vars
-cp uc1/vars.sample.sh uc1/vars.sh
+cp io-loadtest/uc1/vars.sample.sh io-loadtest/uc1/vars.sh
 ```
 
 ## Run
@@ -25,5 +25,5 @@ cp uc1/vars.sample.sh uc1/vars.sh
 Execute load test.
 
 ```
-bash io-loadtest/run.sh uc1/vars.sh
+bash io-loadtest/io-loadtest/run.sh uc1/vars.sh
 ```
