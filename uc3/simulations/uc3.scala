@@ -40,7 +40,15 @@ class uc3 extends Simulation {
         http("Get user's messages")
           .get("/api/v1/messages")
           .check(status.is(200))
+          .check(jsonPath("$.items..id").findAll.saveAs("messageIds"))
       )
+      .foreach("${messageIds}", "messageId") {
+        exec(
+          http("Get message")
+          .get("/api/v1/messages/${messageId}")
+          check(status.is(200))
+        )
+      }
       .exec(
         http("Get all visible services")
           .get("/api/v1/services")
