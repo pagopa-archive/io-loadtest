@@ -27,3 +27,6 @@ Execute load test.
 ```
 bash io-loadtest/run.sh uc1/vars.sh
 ```
+
+## License
+Please refer to [IO license agreement](https://github.com/pagopa/io-app/blob/master/LICENSE).
