@@ -15,9 +15,9 @@ Set global and specific vars.
 
 ```
 # global vars
-cp io-loadtest/vars.sample.sh vars.sh
+cp io-loadtest/vars_sample.sh io-loadtest/vars.sh
 # specific vars
-cp io-loadtest/uc1/vars.sample.sh io-loadtest/uc1/vars.sh
+cp io-loadtest/uc1/vars_sample.sh io-loadtest/uc1/vars.sh
 ```
 
 ## Run
@@ -25,5 +25,5 @@ cp io-loadtest/uc1/vars.sample.sh io-loadtest/uc1/vars.sh
 Execute load test.
 
 ```
-bash io-loadtest/io-loadtest/run.sh uc1/vars.sh
+bash io-loadtest/run.sh uc1/vars.sh
 ```
