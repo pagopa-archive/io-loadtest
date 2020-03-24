@@ -10,7 +10,7 @@ HOSTS=(192.168.1.1 192.168.1.2 192.168.1.3)
 GATLING_VERSION="3.3.1"
 
 # Report Description (no use spaces)
-REPORT_DESCRIPTION='2_Host-100_maxHostConcurrentUsers'
+REPORT_DESCRIPTION='1_Host'
 
 # Output report directory
 OUTPUT_DIR="$HOME/gatling_reports"
