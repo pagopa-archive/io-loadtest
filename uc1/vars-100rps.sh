@@ -7,5 +7,4 @@ GATLING_WORK_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pw
 SIMULATION_NAME="uc1"
 
 JAVA_OPTS="${JAVA_OPTS} -DbaseUrl=https://app-backend.io.italia.it"
-# 200 maxHostConcurrentUsers = 100 rps
-JAVA_OPTS="${JAVA_OPTS} -DmaxHostConcurrentUsers=100"
+JAVA_OPTS="${JAVA_OPTS} -DmaxHostConcurrentUsers=200"
