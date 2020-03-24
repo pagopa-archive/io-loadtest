@@ -27,11 +27,8 @@ apt-get update && apt-get install wget openjdk-8-jdk unzip -y && \
   mkdir -p $GATLING_HOME/target && \
   mkdir -p $GATLING_HOME/results && \
   mkdir -p $GATLING_HOME/reports && \
-  chmod -R 755 $GATLING_HOME/bin && \
-  chmod -R 777 $GATLING_HOME/target && \
-  chmod -R 777 $GATLING_HOME/results && \
-  chmod -R 777 $GATLING_HOME/reports && \
-  chmod -R 777 $GATLING_HOME/user-files && \
+  chown -R root:adm $GATLING_HOME && \
+  chmod -R 775 $GATLING_HOME && \
   sed -i '/^GATLING_HOME/d' /etc/environment && \
   echo "GATLING_HOME=$GATLING_HOME" >> /etc/environment
 
