@@ -44,7 +44,7 @@ rm -rf $GATLING_USERFILES_DIR/*
 
 mkdir -p $GATHER_REPORTS_DIR
 
-cp -R $GATLING_WORK_DIR/ $GATLING_USERFILES_DIR/
+cp -R $GATLING_WORK_DIR/* $GATLING_USERFILES_DIR/
 
 if [[ "$(declare -p HOSTS)" =~ "declare -a" ]]; then
   for HOST in "${HOSTS[@]}"
