@@ -7,7 +7,6 @@ GATLING_WORK_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pw
 SIMULATION_NAME="uc3"
 
 JAVA_OPTS="${JAVA_OPTS} -DbaseUrl=https://api.io.italia.it"
-# 200 maxHostConcurrentUsers = 100 rps
-JAVA_OPTS="${JAVA_OPTS} -DmaxHostConcurrentUsers=100"
+JAVA_OPTS="${JAVA_OPTS} -DmaxHostConcurrentUsers=1400"
 JAVA_OPTS="${JAVA_OPTS} -Dapikey-header-key=Ocp-Apim-Subscription-Key"
 JAVA_OPTS="${JAVA_OPTS} -Dapikey-header-value=XXX"
