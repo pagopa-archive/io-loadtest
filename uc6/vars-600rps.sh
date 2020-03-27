@@ -11,9 +11,9 @@ JAVA_OPTS="${JAVA_OPTS} -DbaseUrl=https://app-backend.io.italia.it"
 JAVA_OPTS="${JAVA_OPTS} -DsessionToken=XXX"
 JAVA_OPTS="${JAVA_OPTS} -DmessagesFile=messages.csv"
 
-JAVA_OPTS="${JAVA_OPTS} -Dmodel=closed"
+JAVA_OPTS="${JAVA_OPTS} -Dmodel=open"
 JAVA_OPTS="${JAVA_OPTS} -Dsteps=5"
 # for closed model
 JAVA_OPTS="${JAVA_OPTS} -DmaxHostConcurrentUsers=600"
 # for open model
-JAVA_OPTS="${JAVA_OPTS} -DmaxHostIncrementUsersPerSec=10"
+JAVA_OPTS="${JAVA_OPTS} -DmaxHostIncrementUsersPerSec=600"
