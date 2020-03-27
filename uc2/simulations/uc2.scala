@@ -20,12 +20,14 @@ class uc2 extends Simulation {
     .acceptCharsetHeader("UTF-8")
 
   object Ping {
+
     val ping = 
       exec(
         http("IO - apigad")
           .get("/ping")
       )
       .pause(1000 milliseconds)
+      
   }
 
   val users = scenario("Users").exec(Ping.ping)
