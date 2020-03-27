@@ -10,7 +10,7 @@ JAVA_OPTS="${JAVA_OPTS} -DbaseUrl=https://app-backend.io.italia.it"
 
 JAVA_OPTS="${JAVA_OPTS} -DsessionToken=XXX"
 
-JAVA_OPTS="${JAVA_OPTS} -Dmodel=closed"
+JAVA_OPTS="${JAVA_OPTS} -Dmodel=open"
 JAVA_OPTS="${JAVA_OPTS} -Dsteps=5"
 # for closed model
 JAVA_OPTS="${JAVA_OPTS} -DmaxHostConcurrentUsers=50"
