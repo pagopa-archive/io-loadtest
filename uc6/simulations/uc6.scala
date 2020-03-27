@@ -31,7 +31,8 @@ class uc6 extends Simulation {
         http("Get Message")
           .get("/api/v1/messages/${messageId}")
       )
-
+      .pause(1000 milliseconds)
+      
   }
   
   val users = scenario("Users").feed(messagesFeeders).exec(GetMessage.getMessage)

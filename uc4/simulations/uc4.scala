@@ -28,6 +28,7 @@ class uc4 extends Simulation {
         http("Get Profile")
           .get("/api/v1/profile")
       )
+      .pause(1000 milliseconds)
 
   }
   
