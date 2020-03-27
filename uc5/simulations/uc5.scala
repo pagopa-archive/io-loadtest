@@ -28,6 +28,7 @@ class uc5 extends Simulation {
         http("Get Messages")
           .get("/api/v1/messages")
       )
+      .pause(1000 milliseconds)
 
   }
   

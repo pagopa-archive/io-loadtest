@@ -28,9 +28,9 @@ class uc3 extends Simulation {
       exec(
         http("Echo Request")
           .get("/test/echo-request")
-          .check(jsonPath("$.method").is("GET"))
       )
-
+      .pause(1000 milliseconds)
+      
   }
   
   val users = scenario("Users").exec(EchoRequest.echoRequest)

@@ -19,16 +19,18 @@ class uc1 extends Simulation {
     .baseUrl(baseUrl)
     .acceptCharsetHeader("UTF-8")
 
-  object Ping {
-    val ping = 
+  object Info {
+
+    val info = 
       exec(
         http("IO - appbackend")
           .get("/info")
       )
       .pause(1000 milliseconds)
+
   }
 
-  val users = scenario("Users").exec(Ping.ping)
+  val users = scenario("Users").exec(Info.info)
 
   model match {
 
