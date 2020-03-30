@@ -1,0 +1,7 @@
+{
+    "time_to_live": 3600,
+    "content": {
+        "subject": "Welcome new user ! This is the test message 0",
+        "markdown": "# This is a markdown header\n\nto show how easily markdown can be converted to **HTML**\n\nRemember: this has to be a long text."
+    }
+}
