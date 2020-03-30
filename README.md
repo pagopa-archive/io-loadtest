@@ -7,6 +7,7 @@ Install gatling on hosts.
 ```
 # Current GATLING_VERSION=3.3.1
 sudo bash io-loadtest/utils/install_gatling.sh GATLING_VERSION
+source /etc/environment
 ```
 
 ## Set vars
