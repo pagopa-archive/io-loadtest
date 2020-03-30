@@ -28,5 +28,15 @@ Execute load test.
 bash io-loadtest/run.sh uc1/vars.sh
 ```
 
+## UC's index
+
+1. [UC1 - app-backend GET /info](uc1/README.md)
+1. [UC2 - api-gad GET /ping](uc2/README.md)
+1. [UC3 - api GET /test/echo-request](uc3/README.md)
+1. [UC4 - app-backend GET /api/v1/profile](uc4/README.md)
+1. [UC5 - app-backend GET /api/v1/messages](uc5/README.md)
+1. [UC6 - app-backend GET /api/v1/messages/{id_message}](uc6/README.md)
+1. [UC7 - api GET /api/v1/profiles/{fiscalcode}](uc7/README.md)
+
 ## License
 Please refer to [IO license agreement](https://github.com/pagopa/io-app/blob/master/LICENSE).

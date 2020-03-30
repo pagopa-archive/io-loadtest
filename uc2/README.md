@@ -1,0 +1,1 @@
+# UC2 - api-gad GET /ping
