@@ -39,6 +39,7 @@ bash io-loadtest/run.sh uc1/vars.sh
 1. [UC6 - app-backend GET /api/v1/messages/{id_message}](uc6/README.md)
 1. [UC7 - api GET /api/v1/profiles/{fiscalcode}](uc7/README.md)
 1. [UC8 - api POST /api/v1/messages/{fiscalcode}](uc8/README.md)
+1. [UCAPP1 - OpenAppIO and Read Messages](ucapp1/README.md)
 
 ## License
 Please refer to [IO license agreement](https://github.com/pagopa/io-app/blob/master/LICENSE).
