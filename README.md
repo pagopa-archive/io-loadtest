@@ -1,32 +1,63 @@
 # io-loadtest
 
-## Install gatling
+This a project to run load test on IO infrastucture.
+You can run installing it on a linux/ubuntu environment or run with docker.
+
+## Run on machine
+
+### 1. Install gatling
 
 Install gatling on hosts.
 
 ```
 # Current GATLING_VERSION=3.3.1
-sudo bash io-loadtest/utils/install_gatling.sh GATLING_VERSION
+cd io-loadtest
+sudo bash utils/install_gatling.sh GATLING_VERSION
 source /etc/environment
 ```
 
-## Set vars
+### 2. Set vars
 
 Set global and specific vars.
 
 ```
 # global vars
-cp io-loadtest/vars_sample.sh io-loadtest/vars.sh
+cd io-loadtest
+cp vars_sample.sh vars.sh
 # specific vars
-cp io-loadtest/uc1/vars_sample.sh io-loadtest/uc1/vars.sh
+cp uc1/vars_sample.sh uc1/vars.sh
 ```
 
-## Run
+### 3. Run
 
 Execute load test.
 
 ```
-bash io-loadtest/run.sh uc1/vars.sh
+cd io-loadtest
+bash run.sh uc1/vars.sh
+```
+
+## Run with Docker
+
+### 1. Build Docker image
+
+```
+cd io-loadtest
+bash utils/build_docker.sh
+```
+
+### 2. Run
+
+```
+# if you need, export your vars, for example JAVA_OPTS
+# export JAVA_OPTS="${JAVA_OPTS} -DsessionToken=XXX"
+
+cd io-loadtest
+docker run --rm -it \
+       -e JAVA_OPTS \
+       -v $(pwd)/gatling_reports:/root/gatling_reports \
+       io-loadtest:v0.1 \
+       /bin/bash -c 'git pull && ./run.sh uc1/vars_sample.sh'
 ```
 
 ## UC's index
