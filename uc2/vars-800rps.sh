@@ -6,11 +6,19 @@ GATLING_WORK_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pw
 #Change to your simulation class name
 SIMULATION_NAME="uc2"
 
-JAVA_OPTS="${JAVA_OPTS} -DbaseUrl=https://api-gad.io.italia.it"
+$(echo ${JAVA_OPTS} | grep -q 'DbaseUrl=')
+if [ $? -ne 0 ]; then JAVA_OPTS="${JAVA_OPTS} -DbaseUrl=https://api-gad.io.italia.it"; fi
 
-JAVA_OPTS="${JAVA_OPTS} -Dmodel=open"
-JAVA_OPTS="${JAVA_OPTS} -Dsteps=5"
+# model can be open or closed
+$(echo ${JAVA_OPTS} | grep -q 'Dmodel=')
+if [ $? -ne 0 ]; then JAVA_OPTS="${JAVA_OPTS} -Dmodel=open"; fi
+
+$(echo ${JAVA_OPTS} | grep -q 'Dsteps=')
+if [ $? -ne 0 ]; then JAVA_OPTS="${JAVA_OPTS} -Dsteps=5"; fi
+
 # for closed model
-JAVA_OPTS="${JAVA_OPTS} -DmaxHostConcurrentUsers=800"
+$(echo ${JAVA_OPTS} | grep -q 'DmaxHostConcurrentUsers=')
+if [ $? -ne 0 ]; then JAVA_OPTS="${JAVA_OPTS} -DmaxHostConcurrentUsers=800"; fi
 # for open model
-JAVA_OPTS="${JAVA_OPTS} -DmaxHostIncrementUsersPerSec=800"
+$(echo ${JAVA_OPTS} | grep -q 'DmaxHostIncrementUsersPerSec=')
+if [ $? -ne 0 ]; then JAVA_OPTS="${JAVA_OPTS} -DmaxHostIncrementUsersPerSec=800"; fi
