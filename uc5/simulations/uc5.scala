@@ -25,7 +25,7 @@ class uc5 extends Simulation {
 
     val getMessages = 
       exec(
-        http("Get Messages")
+        http("GET /api/v1/messages")
           .get("/api/v1/messages")
       )
       .pause(1000 milliseconds)

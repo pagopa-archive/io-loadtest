@@ -17,13 +17,12 @@ class uc2 extends Simulation {
 
   val httpConf = http
     .baseUrl(baseUrl)
-    .acceptCharsetHeader("UTF-8")
 
   object Ping {
 
     val ping = 
       exec(
-        http("IO - apigad")
+        http("GET /ping")
           .get("/ping")
       )
       .pause(1000 milliseconds)

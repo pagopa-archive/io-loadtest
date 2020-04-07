@@ -30,7 +30,7 @@ class uc8 extends Simulation {
     
     val postMessage = 
       exec(
-        http("Send Message to User")
+        http("POST /api/v1/messages/{fiscalcode}")
           .post("/api/v1/messages/${fiscalcode}")
           .body(RawFileBody(s"messageTemplate${scala.util.Random.nextInt(maxMessageTemplateId).toString}.json")).asJson
       )
