@@ -25,7 +25,7 @@ class uc4 extends Simulation {
 
     val getProfile = 
       exec(
-        http("Get Profile")
+        http("GET /api/v1/profile")
           .get("/api/v1/profile")
       )
       .pause(1000 milliseconds)

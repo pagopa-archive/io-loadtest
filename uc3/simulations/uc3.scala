@@ -26,7 +26,7 @@ class uc3 extends Simulation {
 
     val echoRequest = 
       exec(
-        http("Echo Request")
+        http("GET /test/echo-request")
           .get("/test/echo-request")
       )
       .pause(1000 milliseconds)

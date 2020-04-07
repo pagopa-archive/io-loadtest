@@ -29,7 +29,7 @@ class uc7 extends Simulation {
 
     val getProfile = 
       exec(
-        http("Get Profile")
+        http("GET /api/v1/profiles/{fiscalcode}")
           .get("/api/v1/profiles/${fiscalcode}")
       )
       .pause(1000 milliseconds)

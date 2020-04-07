@@ -17,13 +17,12 @@ class uc1 extends Simulation {
   
   val httpConf = http
     .baseUrl(baseUrl)
-    .acceptCharsetHeader("UTF-8")
 
   object Info {
 
     val info = 
       exec(
-        http("IO - appbackend")
+        http("GET /info")
           .get("/info")
       )
       .pause(1000 milliseconds)
