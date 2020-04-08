@@ -9,7 +9,7 @@ You can run installing it on a linux/ubuntu environment or run with docker.
 
 Install gatling on hosts.
 
-```
+```bash
 # Current GATLING_VERSION=3.3.1
 cd io-loadtest
 sudo bash utils/install_gatling.sh GATLING_VERSION
@@ -20,7 +20,7 @@ source /etc/environment
 
 Set global and specific vars.
 
-```
+```bash
 # global vars
 cd io-loadtest
 cp vars_sample.sh vars.sh
@@ -32,7 +32,7 @@ cp uc1/vars_sample.sh uc1/vars.sh
 
 Execute load test.
 
-```
+```bash
 cd io-loadtest
 bash run.sh uc1/vars.sh
 ```
@@ -41,23 +41,26 @@ bash run.sh uc1/vars.sh
 
 ### 1. Build Docker image
 
-```
+```bash
 cd io-loadtest
 bash utils/build_docker.sh
 ```
 
 ### 2. Run
 
-```
-# if you need, export your vars, for example JAVA_OPTS
+```bash
+# Set GATLING_VARS to point to configuration file, for example:
+# -e GATLING_VARS="uc1/vars_sample.sh"
+
+# if you need you can override vars in GATLING_VARS configuration file, for example:
 # export JAVA_OPTS="${JAVA_OPTS} -DsessionToken=XXX"
 
 cd io-loadtest
 docker run --rm -it \
+       -e GATLING_VARS="uc1/vars_sample.sh" \
        -e JAVA_OPTS \
        -v $(pwd)/gatling_reports:/root/gatling_reports \
-       io-loadtest:v0.1 \
-       /bin/bash -c 'git pull && ./run.sh uc1/vars_sample.sh'
+       io-loadtest:v0.1
 ```
 
 ## UC's index

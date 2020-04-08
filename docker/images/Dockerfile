@@ -21,8 +21,14 @@ ENV PATH /opt/gatling_$GATLING_VERSION/bin:/usr/local/sbin:/usr/local/bin:/usr/s
 ENV GATLING_HOME /opt/gatling_$GATLING_VERSION
 
 # get pagopa/io-loadtest
-RUN git clone https://github.com/pagopa/io-loadtest && \
-    cp io-loadtest/vars_sample.sh io-loadtest/vars.sh && \
-    chmod 700 io-loadtest/run.sh
+RUN git clone https://github.com/pagopa/io-loadtest
 
 WORKDIR /io-loadtest
+
+# set entrypoint script
+RUN echo "#!/bin/bash" >> entrypoint.sh && \
+    echo "git pull && cp vars_sample.sh vars.sh && ./run.sh "'$GATLING_VARS'"" >> entrypoint.sh && \
+    chmod 700 entrypoint.sh && \
+    chmod 700 run.sh
+
+ENTRYPOINT [ "/io-loadtest/entrypoint.sh" ]
