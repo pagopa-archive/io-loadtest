@@ -25,10 +25,9 @@ RUN git clone https://github.com/pagopa/io-loadtest
 
 WORKDIR /io-loadtest
 
-# set entrypoint script
-RUN echo "#!/bin/bash" >> entrypoint.sh && \
-    echo "git pull && cp vars_sample.sh vars.sh && ./run.sh "'$GATLING_VARS'"" >> entrypoint.sh && \
-    chmod 700 entrypoint.sh && \
+COPY entrypoint.sh .
+
+RUN chmod 700 entrypoint.sh && \
     chmod 700 run.sh
 
 ENTRYPOINT [ "/io-loadtest/entrypoint.sh" ]
