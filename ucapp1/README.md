@@ -1,1 +1,0 @@
-# UCAPP1 - OpenAppIO and Read Messages
