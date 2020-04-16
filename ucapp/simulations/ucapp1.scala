@@ -22,7 +22,8 @@ class ucapp1 extends Simulation {
       OpenApp.openApp,
       UnlockApp.unlockApp,
       ReadMessageList.readMessageList,
-      ReadMessages.readMessages
+      ReadMessages.readMessages,
+      CloseApp.closeApp
     )
 
   Configuration.model match {
@@ -33,11 +34,11 @@ class ucapp1 extends Simulation {
       setUp(
         users
           .inject(
-            incrementUsersPerSec(incrementUsers.toInt) // Double
-              .times(Configuration.steps.toInt)        // repetition
-              .eachLevelLasting(30 seconds)            // time between next increment
+            incrementUsersPerSec(incrementUsers.toInt)
+              .times(Configuration.steps.toInt) // repetition
+              .eachLevelLasting(30 seconds)     // time between next increment
               .separatedByRampsLasting(10 seconds)
-              .startingFrom(incrementUsers.toInt), // Double
+              .startingFrom(incrementUsers.toInt),
             constantUsersPerSec(Configuration.virtualUsers.toInt) during (Configuration.steadyStateTime.toInt seconds)
           )
           .protocols(httpConf)
@@ -49,11 +50,11 @@ class ucapp1 extends Simulation {
       setUp(
         users
           .inject(
-            incrementConcurrentUsers(incrementUsers.toInt) // Double
-              .times(Configuration.steps.toInt)            // repetition
-              .eachLevelLasting(30 seconds)                // time between next increment
+            incrementConcurrentUsers(incrementUsers.toInt)
+              .times(Configuration.steps.toInt) // repetition
+              .eachLevelLasting(30 seconds)     // time between next increment
               .separatedByRampsLasting(10 seconds)
-              .startingFrom(incrementUsers.toInt), // Double
+              .startingFrom(incrementUsers.toInt),
             constantConcurrentUsers(Configuration.virtualUsers.toInt) during (Configuration.steadyStateTime.toInt seconds)
           )
           .protocols(httpConf)
